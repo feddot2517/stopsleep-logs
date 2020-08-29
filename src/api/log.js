@@ -2,10 +2,14 @@ const { Log } = require("../models/log");
 
 module.exports = {
     log: async function (req, res) {
-        const log = new Log(req.query);
-        await log.save();
+        const { logs } = req.body.data;
 
-        res.send('log was saved')
+        for (const log of logs) {
+            const newLog = new Log(log);
+            await newLog.save();
+        }
+
+        res.send('logs was saved')
     },
     readLog: async function(req, res) {
         const logs = await Log.find();

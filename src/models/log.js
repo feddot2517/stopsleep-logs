@@ -11,6 +11,11 @@ const logSchema = new Schema({
         required: true
     },
 
+    signal2: {
+        type: Number,
+        required: false
+    },
+
     date: {
         type: Date,
         required: true

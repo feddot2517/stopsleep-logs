@@ -12,7 +12,7 @@ app.use(cors);
 app.use(express.urlencoded({extended: false}));
 app.use(checkSecret)
 
-app.get('/log', log)
+app.post('/log', log)
 app.get('/read', readLog)
 
 mongoose.connect('mongodb://localhost/stopsleep_logs', {
